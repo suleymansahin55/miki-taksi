@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miki Taksi Samsun | İlkadım Çiftlik Mahallesi 7/24 Taksi</title>
+<meta name="description" content="Miki Taksi, Samsun İlkadım Çiftlik Mahallesi merkezli 7/24 taksi hizmeti. Hemen ara veya WhatsApp'tan yaz, taksin dakikalar içinde kapında.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --asphalt:#191b20;
+    --asphalt-2:#23262d;
+    --taxi:#ffc93c;
+    --taxi-deep:#e8a900;
+    --signal:#e5484d;
+    --paper:#f4f1e9;
+    --ink:#191b20;
+    --mute:#9a9ca3;
+    --teal:#2b6f77;
+    --line:rgba(244,241,233,0.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--asphalt);
+    color:var(--paper);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001s !important; transition-duration:0.001s !important;}
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:'Archivo Black',sans-serif;font-weight:400;line-height:1.05;margin:0;letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--taxi);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--taxi);display:inline-block;}
+  .checker{
+    height:10px;
+    background-image:repeating-linear-gradient(45deg, var(--taxi) 0 10px, var(--asphalt) 10px 20px);
+    border-top:1px solid rgba(0,0,0,0.25);
+    border-bottom:1px solid rgba(0,0,0,0.25);
+  }
+  :focus-visible{outline:3px solid var(--taxi); outline-offset:2px;}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(25,27,32,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Archivo Black',sans-serif;font-size:20px;text-decoration:none;}
+  .brand-mark{
+    width:38px;height:38px;border-radius:9px;background:var(--taxi);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--asphalt);font-size:19px;font-weight:900;
+    box-shadow:0 3px 0 var(--taxi-deep);
+  }
+  .nav-links{display:flex;gap:28px;font-size:15px;font-weight:500;list-style:none;margin:0;padding:0;}
+  .nav-links a{text-decoration:none;color:var(--mute);transition:color .2s;}
+  .nav-links a:hover{color:var(--paper);}
+  .nav-cta{display:flex;gap:10px;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 18px;border-radius:999px;
+    font-weight:700;font-size:14.5px;text-decoration:none;
+    border:1px solid transparent;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-taxi{background:var(--taxi);color:var(--asphalt);box-shadow:0 3px 0 var(--taxi-deep);}
+  .btn-taxi:hover{box-shadow:0 4px 0 var(--taxi-deep);transform:translateY(-1px);}
+  .btn-wa{background:#25D366;color:#0b2712;box-shadow:0 3px 0 #1aa851;}
+  .btn-wa:hover{box-shadow:0 4px 0 #1aa851;transform:translateY(-1px);}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--paper);}
+  .menu-toggle{display:none;background:none;border:none;color:var(--paper);font-size:26px;cursor:pointer;}
+
+  /* HERO */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:76px 0 60px;
+    background:
+      radial-gradient(ellipse 900px 500px at 85% -10%, rgba(255,201,60,0.14), transparent 60%),
+      var(--asphalt);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;}
+  .route-line{position:relative;height:34px;margin:22px 0 30px;}
+  .route-svg{width:100%;height:100%;display:block;}
+  .hero h1{font-size:56px;color:var(--paper);}
+  .hero h1 span{color:var(--taxi);}
+  .hero p.lead{font-size:18px;color:var(--mute);max-width:480px;margin:20px 0 30px;line-height:1.6;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+  .btn-lg{padding:16px 26px;font-size:16px;border-radius:12px;}
+  .hero-stats{display:flex;gap:28px;flex-wrap:wrap;}
+  .stat{font-family:'JetBrains Mono',monospace;}
+  .stat b{display:block;font-size:26px;color:var(--taxi);font-family:'Archivo Black',sans-serif;}
+  .stat span{font-size:12.5px;color:var(--mute);letter-spacing:.04em;}
+
+  /* METER CARD - signature element */
+  .meter-card{
+    background:var(--asphalt-2);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:26px 26px 22px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.35);
+  }
+  .meter-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+  .meter-head .dot{width:9px;height:9px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 4px rgba(229,72,77,0.18);animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+  .meter-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;}
+  .meter-display{
+    background:#101216;border-radius:12px;padding:20px;
+    font-family:'JetBrains Mono',monospace;
+    border:1px solid var(--line);
+  }
+  .meter-row{display:flex;justify-content:space-between;font-size:14px;color:var(--mute);margin-bottom:8px;}
+  .meter-row b{color:var(--paper);}
+  .meter-fare{
+    font-family:'Archivo Black',sans-serif;
+    font-size:44px;color:var(--taxi);margin-top:10px;letter-spacing:-0.02em;
+  }
+  .meter-note{font-size:11.5px;color:var(--mute);margin-top:6px;}
+  .meter-card-foot{display:flex;gap:10px;margin-top:18px;}
+  .meter-card-foot .btn{flex:1;justify-content:center;}
+
+  /* SERVICES */
+  section{padding:84px 0;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:36px;color:var(--paper);}
+  .section-head p{color:var(--mute);font-size:16.5px;margin-top:14px;line-height:1.6;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .card{
+    background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 24px;transition:border-color .2s, transform .2s;
+  }
+  .card:hover{border-color:rgba(255,201,60,0.4);transform:translateY(-3px);}
+  .card .ic{
+    width:44px;height:44px;border-radius:10px;background:rgba(255,201,60,0.12);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--taxi);
+  }
+  .card h3{font-family:'Inter',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px;}
+  .card p{color:var(--mute);font-size:14.5px;line-height:1.55;margin:0;}
+
+  /* SERVICE AREA - dispatch board */
+  .board-section{background:var(--asphalt-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .board{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .board-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .board-list li{
+    padding:16px 18px;background:var(--asphalt);
+    font-family:'JetBrains Mono',monospace;font-size:14px;
+    display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);
+  }
+  .board-list li b{color:var(--taxi);font-weight:700;}
+  .board-list li.hq{background:rgba(255,201,60,0.08);}
+  .board-list li.hq b{color:var(--taxi);}
+
+  /* WHY */
+  .why-list{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 40px;}
+  .why-item{display:flex;gap:16px;}
+  .why-num{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--taxi);border:1px solid var(--line);border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .why-item h3{font-family:'Inter';font-weight:700;font-size:16.5px;margin-bottom:6px;}
+  .why-item p{color:var(--mute);font-size:14.5px;margin:0;line-height:1.55;}
+
+  /* TESTIMONIALS */
+  .rating-strip{display:flex;align-items:center;gap:14px;margin-bottom:44px;flex-wrap:wrap;}
+  .rating-score{font-family:'Archivo Black',sans-serif;font-size:40px;color:var(--taxi);}
+  .rating-stars{color:var(--taxi);font-size:18px;letter-spacing:2px;}
+  .rating-sub{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--mute);letter-spacing:.05em;}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .testi-card{background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;gap:14px;}
+  .testi-stars{color:var(--taxi);font-size:15px;letter-spacing:2px;}
+  .testi-card p{color:var(--paper);font-size:14.5px;line-height:1.6;margin:0;flex-grow:1;}
+  .testi-who{display:flex;align-items:center;gap:10px;padding-top:6px;border-top:1px solid var(--line);}
+  .testi-avatar{width:34px;height:34px;border-radius:50%;background:rgba(255,201,60,0.14);color:var(--taxi);display:flex;align-items:center;justify-content:center;font-family:'Archivo Black',sans-serif;font-size:14px;flex-shrink:0;}
+  .testi-who b{display:block;font-size:13.5px;}
+  .testi-who span{font-size:12px;color:var(--mute);}
+
+  /* CTA BANNER */
+  .cta-banner{
+    background:linear-gradient(135deg, var(--taxi) 0%, var(--taxi-deep) 100%);
+    border-radius:24px;padding:56px 48px;
+    display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;
+    color:var(--asphalt);
+  }
+  .cta-banner h2{color:var(--asphalt);font-size:32px;max-width:460px;}
+  .cta-banner p{color:rgba(25,27,32,0.72);margin-top:10px;font-size:15px;}
+  .cta-banner .btn-ghost{border-color:rgba(25,27,32,0.3);color:var(--asphalt);}
+  .cta-banner .btn-wa{background:#0b2712;color:#25D366;box-shadow:0 3px 0 rgba(0,0,0,0.4);}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .contact-card{background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);padding:30px;}
+  .contact-row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .contact-row:last-child{border-bottom:none;}
+  .contact-row .ic{width:38px;height:38px;border-radius:9px;background:rgba(255,201,60,0.12);display:flex;align-items:center;justify-content:center;color:var(--taxi);flex-shrink:0;}
+  .contact-row b{display:block;font-size:14px;color:var(--mute);font-weight:500;margin-bottom:3px;}
+  .contact-row span{font-size:15.5px;font-weight:600;}
+  .map-frame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:340px;}
+  .map-frame iframe{width:100%;height:100%;min-height:340px;border:0;filter:grayscale(0.3) invert(0.92) contrast(0.9);}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot-row .brand{font-size:17px;}
+  footer p{color:var(--mute);font-size:13.5px;margin:0;}
+
+  /* Floating WA */
+  .float-wa{
+    position:fixed;bottom:22px;right:22px;z-index:60;
+    width:60px;height:60px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);text-decoration:none;
+    animation:float 3s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:1fr;}
+    .board{grid-template-columns:1fr;}
+    .why-list{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .hero h1{font-size:38px;}
+    .cta-banner{flex-direction:column;text-align:center;}
+    .cta-banner h2{max-width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand"><span class="brand-mark">M</span>Miki Taksi</a>
+    <ul class="nav-links">
+      <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#bolgeler">Bölgeler</a></li>
+      <li><a href="#neden-biz">Neden Biz</a></li>
+      <li><a href="#yorumlar">Yorumlar</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="tel:05401120279">📞 0540 112 02 79</a>
+      <a class="btn btn-taxi" href="tel:05401120279">Hemen Ara</a>
+    </div>
+  </div>
+</header>
+<div class="checker"></div>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Samsun · İlkadım · Çiftlik Mahallesi</div>
+        <h1>Çiftlik'ten şehrin<br>her <span>noktasına</span>,<br>dakikalar içinde.</h1>
+        <div class="route-line">
+          <svg class="route-svg" viewBox="0 0 480 34" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M4 26 C 120 26, 140 6, 240 6 S 360 26, 476 10" fill="none" stroke="#ffc93c" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round"/>
+            <circle cx="4" cy="26" r="5" fill="#ffc93c"/>
+            <circle cx="476" cy="10" r="5" fill="#e5484d"/>
+          </svg>
+        </div>
+        <p class="lead">Miki Taksi, İlkadım Çiftlik Mahallesi merkezli olarak Samsun genelinde 7/24 hizmet veriyor. Tek tuşla ara ya da WhatsApp'tan yaz, konumunu paylaş — taksin yola çıksın.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-taxi btn-lg" href="tel:05401120279">📞 0540 112 02 79 — Hemen Ara</a>
+          <a class="btn btn-wa btn-lg" href="https://api.whatsapp.com/send?phone=905401120279&text=Merhaba%2C%20Miki%20Taksi%2C%20web%20sitesinden%20yaz%C4%B1yorum." target="_blank" rel="noopener">💬 WhatsApp'tan Yaz</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>7/24</b><span>KESİNTİSİZ HİZMET</span></div>
+          <div class="stat"><b>İlkadım</b><span>MERKEZ ÜS: ÇİFTLİK MH.</span></div>
+          <div class="stat"><b>Şehir İçi/Dışı</b><span>HER GÜZERGAH</span></div>
+        </div>
+      </div>
+
+      <div class="meter-card">
+        <div class="meter-head">
+          <span class="meter-label">Miki Taksi · Çağrı Merkezi</span>
+          <span class="dot" aria-hidden="true"></span>
+        </div>
+        <div class="meter-display">
+          <div class="meter-row"><span>Kalkış</span><b>Çiftlik Mah., İlkadım</b></div>
+          <div class="meter-row"><span>Durum</span><b>Müsait araç bekliyor</b></div>
+          <div class="meter-row"><span>Tahmini varış</span><b>~5-10 dk</b></div>
+          <div class="meter-fare">HAZIR</div>
+          <div class="meter-note">Ücret güzergaha göre taksimetreyle belirlenir.</div>
+        </div>
+        <div class="meter-card-foot">
+          <a class="btn btn-taxi" href="tel:05401120279">Ara</a>
+          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=905401120279&text=Merhaba%2C%20konum%20at%C4%B1yorum%2C%20taksi%20rica%20ediyorum." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hizmetler">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Hizmetlerimiz</div>
+        <h2>Her yolculuk için doğru araç</h2>
+        <p>Şehir içi kısa mesafeden şehirlerarası uzun yolculuğa kadar, Miki Taksi güvencesiyle yanınızdayız.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="ic">🏙️</div>
+          <h3>Şehir İçi Taksi</h3>
+          <p>Samsun içinde işe, okula, hastaneye ya da randevunuza en kısa sürede, güvenli ve konforlu ulaşım.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🛣️</div>
+          <h3>Şehirlerarası Yolculuk</h3>
+          <p>Samsun dışına çıkacağınız yolculuklarda önceden planlayarak, sabit fiyat teyidiyle rahat bir sürüş.</p>
+        </div>
+        <div class="card">
+          <div class="ic">✈️</div>
+          <h3>Havalimanı Transferi</h3>
+          <p>Uçuş saatinize göre planlanan, zamanında kapınızda olan transfer hizmeti — bagaj derdi yok.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🌙</div>
+          <h3>Gece Taksi Hattı</h3>
+          <p>Gecenin her saati aynı hız ve güvenle; hattımız kesintisiz açık, aracınız yola hazır.</p>
+        </div>
+        <div class="card">
+          <div class="ic">📦</div>
+          <h3>Kurye &amp; Paket</h3>
+          <p>Evrak, paket veya küçük eşyalarınızı adresten adrese hızlıca ulaştırıyoruz.</p>
+        </div>
+        <div class="card">
+          <div class="ic">📅</div>
+          <h3>Randevulu Çağrı</h3>
+          <p>Uçak, tren ya da önemli bir randevunuz mu var? Saatini söyleyin, taksiniz zamanında kapınızda olsun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="board-section" id="bolgeler">
+    <div class="wrap board">
+      <div>
+        <div class="eyebrow">Hizmet Bölgesi</div>
+        <h2 style="font-size:32px;">Merkez üs: Çiftlik, İlkadım</h2>
+        <p style="color:var(--mute);margin-top:14px;line-height:1.6;">Miki Taksi, İlkadım Çiftlik Mahallesi'nde konumlanan ekibiyle Samsun'un tüm ilçelerine kısa sürede ulaşır. Aşağıdaki bölgelerin herhangi birinden çağrı yapabilirsiniz.</p>
+      </div>
+      <ul class="board-list">
+        <li class="hq"><b>◆</b> Çiftlik (Merkez Üs)</li>
+        <li><b>◆</b> İlkadım</li>
+        <li><b>◆</b> Atakum</li>
+        <li><b>◆</b> Canik</li>
+        <li><b>◆</b> Tekkeköy</li>
+        <li><b>◆</b> İlkadım Sahil</li>
+        <li><b>◆</b> Kalkanca</li>
+        <li><b>◆</b> Kutlukent</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="neden-biz">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Neden Miki Taksi</div>
+        <h2>Komşunuz kadar yakın, profesyonel kadar güvenilir</h2>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div><h3>Hızlı Yanıt</h3><p>Çiftlik Mahallesi merkezli konumumuz sayesinde çevre bölgelere kısa sürede ulaşıyoruz.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div><h3>7/24 Ulaşılabilirlik</h3><p>Gün içinde her saat telefon ve WhatsApp hattımızdan bize kolayca ulaşabilirsiniz.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div><h3>Güvenli Sürüş</h3><p>Tecrübeli sürücü kadromuzla konforlu ve güvenli bir yolculuk garantisi.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div><h3>Net Fiyatlandırma</h3><p>Sürpriz ücret yok; taksimetre veya önceden teyit edilen sabit fiyatla yolculuk.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="yorumlar">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Müşteri Yorumları</div>
+        <h2>Yolcularımız ne diyor</h2>
+      </div>
+      <div class="rating-strip">
+        <span class="rating-score">4.9</span>
+        <span class="rating-stars">★★★★★</span>
+        <span class="rating-sub">GOOGLE YORUMLARINA GÖRE ORTALAMA PUAN</span>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <span class="testi-stars">★★★★★</span>
+          <p>"Çiftlik'ten aradım, 5 dakikada taksi kapımdaydı. Sürücü çok nazikti, yolculuk boyunca güvenli hissettim."</p>
+          <div class="testi-who">
+            <div class="testi-avatar">E</div>
+            <div><b>Elif K.</b><span>İlkadım</span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <span class="testi-stars">★★★★★</span>
+          <p>"WhatsApp'tan yazdım, konumu attım, hiç beklemeden geldiler. Artık her zaman Miki Taksi'yi arıyorum."</p>
+          <div class="testi-who">
+            <div class="testi-avatar">M</div>
+            <div><b>Mehmet A.</b><span>Atakum</span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <span class="testi-stars">★★★★★</span>
+          <p>"Havalimanına yetişmem gerekiyordu, tam saatinde kapıdaydılar. Fiyat da baştan netti, sürpriz olmadı."</p>
+          <div class="testi-who">
+            <div class="testi-avatar">S</div>
+            <div><b>Selin T.</b><span>Canik</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-banner">
+        <div>
+          <h2>Taksi çağırmak bir mesaj kadar kolay</h2>
+          <p>WhatsApp'a yazın, konumunuzu atın, gerisini bize bırakın.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a class="btn btn-ghost btn-lg" href="tel:05401120279">📞 0540 112 02 79</a>
+          <a class="btn btn-wa btn-lg" href="https://api.whatsapp.com/send?phone=905401120279&text=Merhaba%2C%20Miki%20Taksi%2C%20web%20sitesinden%20yaz%C4%B1yorum." target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">İletişim</div>
+        <h2>Bize ulaşın</h2>
+        <p>Samsun İlkadım, Çiftlik Mahallesi merkezli olarak hizmet veriyoruz.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-row">
+            <div class="ic">📞</div>
+            <div><b>Telefon</b><span><a href="tel:05401120279">0540 112 02 79</a></span></div>
+          </div>
+          <div class="contact-row">
+            <div class="ic">💬</div>
+            <div><b>WhatsApp</b><span><a href="https://api.whatsapp.com/send?phone=905401120279&text=Merhaba%2C%20Miki%20Taksi%2C%20web%20sitesinden%20yaz%C4%B1yorum." target="_blank" rel="noopener">0540 112 02 79</a></span></div>
+          </div>
+          <div class="contact-row">
+            <div class="ic">📍</div>
+            <div><b>Konum</b><span>Çiftlik Mahallesi, İlkadım / Samsun</span></div>
+          </div>
+          <div class="contact-row">
+            <div class="ic">🕒</div>
+            <div><b>Çalışma Saatleri</b><span>7/24 Açık</span></div>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe title="Çiftlik Mahallesi, İlkadım, Samsun haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=%C3%87iftlik%20Mahallesi%2C%20%C4%B0lkad%C4%B1m%2C%20Samsun&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <a href="#top" class="brand"><span class="brand-mark">M</span>Miki Taksi</a>
+    <p>© <span id="year"></span> Miki Taksi — Samsun İlkadım Çiftlik Mahallesi · 7/24 Hizmetinizde</p>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://api.whatsapp.com/send?phone=905401120279&text=Merhaba%2C%20Miki%20Taksi%2C%20web%20sitesinden%20yaz%C4%B1yorum." target="_blank" rel="noopener" aria-label="WhatsApp'tan yaz">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#0b2712"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.28-1.38a9.87 9.87 0 0 0 4.71 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.07c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.13 1.02-2.42.26-.29.58-.36.77-.36l.55.01c.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.29.15.46.13.63-.08.17-.21.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.63.77 1.91.91.29.14.48.21.55.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
